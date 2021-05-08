@@ -7,17 +7,17 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 
-const whitelist = ['http://localhost:4200']
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-}
-
+// const whitelist = ['http://localhost:4200']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   },
+// }
+app.use(cors())
 
 
 // define a route handler for the default home page
@@ -25,7 +25,7 @@ const jsonParser = bodyParser.json()
 
 const allowedIn = [1234, 4567]
 
-app.post( "/auth", cors(corsOptions), jsonParser, ( req : express.Request, res ) => {
+app.post( "/auth", jsonParser, ( req : express.Request, res ) => {
     if(allowedIn.includes(req.body.code)) {
       res.send({authentication : true});
     } else {

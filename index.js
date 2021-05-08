@@ -95,7 +95,7 @@ var tasks = [
 //const mergedAllTasks = [].concat.apply([], allTasks);
 //console.log(tasks.filter(e => e !== 'xxxx'))
 // Bart your task of this week is " + mergedAllTasks[result + 2]
-app.get("/", jsonParser, function (req, res) {
+app.get("/cleaning-list", jsonParser, function (req, res) {
     var result = getNumberOfWeek();
     console.log(result);
     res.send("\n    <h1>Hi everyone! \uD83D\uDC4B it is week: " + (nrWeek - 2) + "</h1>  \n    <ul>\n      <li>Bart your task of this week is: <b> " + tasks[nrWeek] + " </b></li>\n      <li>Camila your task of this week is: <b> " + tasks[nrWeek + 1] + " </b></li>\n      <li>Camille your task of this week is: <b> " + tasks[nrWeek + 2] + " </b></li>\n      <li>Andrej your task of this week is: <b> " + tasks[nrWeek + 3] + " </b></li>\n      <li>Miguel your task of this week is: <b> " + tasks[nrWeek + 4] + " </b></li>\n    </ul>");

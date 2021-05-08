@@ -108,7 +108,7 @@ const tasks = [
 
 // Bart your task of this week is " + mergedAllTasks[result + 2]
 
-app.get( "/", jsonParser, ( req : express.Request, res ) => {
+app.get( "/cleaning-list", jsonParser, ( req : express.Request, res ) => {
   const result = getNumberOfWeek()
   console.log(result)
   res.send(`

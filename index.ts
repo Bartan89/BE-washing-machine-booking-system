@@ -2,7 +2,7 @@ import * as express from "express";
 
 const expressApp = require( "express" );
 const app = expressApp();
-const port = 8080; // default port to listen
+const PORT = process.env.PORT || 8000
 const bodyParser = require('body-parser')
 const cors = require('cors')
 

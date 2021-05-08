@@ -25,12 +25,16 @@ const jsonParser = bodyParser.json()
 
 const allowedIn = [1234, 4567]
 
-app.post( "/", cors(corsOptions), jsonParser, ( req : express.Request, res ) => {
+app.post( "/auth", cors(corsOptions), jsonParser, ( req : express.Request, res ) => {
     if(allowedIn.includes(req.body.code)) {
       res.send({authentication : true});
     } else {
       res.send({authentication : false});
     }
+} );
+
+app.get( "/", jsonParser, ( req : express.Request, res ) => {
+  res.send("welcome")
 } );
 
 // start the Express server

@@ -19,13 +19,16 @@ var corsOptions = {
 // define a route handler for the default home page
 var jsonParser = bodyParser.json();
 var allowedIn = [1234, 4567];
-app.post("/", cors(corsOptions), jsonParser, function (req, res) {
+app.post("/auth", cors(corsOptions), jsonParser, function (req, res) {
     if (allowedIn.includes(req.body.code)) {
         res.send({ authentication: true });
     }
     else {
         res.send({ authentication: false });
     }
+});
+app.get("/", jsonParser, function (req, res) {
+    res.send("welcome");
 });
 // start the Express server
 app.listen(port, function () {

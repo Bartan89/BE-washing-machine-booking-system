@@ -2,7 +2,7 @@
 exports.__esModule = true;
 var expressApp = require("express");
 var app = expressApp();
-var port = 8080; // default port to listen
+var PORT = process.env.PORT || 8000;
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var whitelist = ['http://localhost:4200'];
@@ -31,6 +31,6 @@ app.get("/", jsonParser, function (req, res) {
     res.send("welcome");
 });
 // start the Express server
-app.listen(port, function () {
-    console.log("server started at http://localhost:" + port);
+app.listen(PORT, function () {
+    console.log("server started at http://localhost:" + PORT);
 });

@@ -38,6 +38,6 @@ app.get( "/", jsonParser, ( req : express.Request, res ) => {
 } );
 
 // start the Express server
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
+app.listen( PORT, () => {
+    console.log( `server started at http://localhost:${ PORT }` );
 } );

@@ -108,11 +108,19 @@ const tasks = [
 
 // Bart your task of this week is " + mergedAllTasks[result + 2]
 
+function day(){
+  const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  var d = new Date();
+  var n = d.getDay()
+  return week[n-1]
+}
+
 app.get( "/cleaning-list", jsonParser, ( req : express.Request, res ) => {
   const result = getNumberOfWeek()
   console.log(result)
   res.send(`
-    <h1>Hi everyone! 👋 it is week: ${nrWeek -2}</h1>  
+    <h1>Hi everyone, happy ${day()} 👋</h1> 
+    <h4>It is week: ${nrWeek -2}</h4> 
     <ul>
       <li>Bart your task of this week is: <b> ${tasks[nrWeek]} </b></li>
       <li>Camila your task of this week is: <b> ${tasks[nrWeek + 1]} </b></li>

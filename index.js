@@ -95,10 +95,16 @@ var tasks = [
 //const mergedAllTasks = [].concat.apply([], allTasks);
 //console.log(tasks.filter(e => e !== 'xxxx'))
 // Bart your task of this week is " + mergedAllTasks[result + 2]
+function day() {
+    var week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    var d = new Date();
+    var n = d.getDay();
+    return week[n - 1];
+}
 app.get("/cleaning-list", jsonParser, function (req, res) {
     var result = getNumberOfWeek();
     console.log(result);
-    res.send("\n    <h1>Hi everyone! \uD83D\uDC4B it is week: " + (nrWeek - 2) + "</h1>  \n    <ul>\n      <li>Bart your task of this week is: <b> " + tasks[nrWeek] + " </b></li>\n      <li>Camila your task of this week is: <b> " + tasks[nrWeek + 1] + " </b></li>\n      <li>Camille your task of this week is: <b> " + tasks[nrWeek + 2] + " </b></li>\n      <li>Andrej your task of this week is: <b> " + tasks[nrWeek + 3] + " </b></li>\n      <li>Miguel your task of this week is: <b> " + tasks[nrWeek + 4] + " </b></li>\n    </ul>");
+    res.send("\n    <h1>Hi everyone, happy " + day() + " \uD83D\uDC4B</h1> \n    <h4>It is week: " + (nrWeek - 2) + "</h4> \n    <ul>\n      <li>Bart your task of this week is: <b> " + tasks[nrWeek] + " </b></li>\n      <li>Camila your task of this week is: <b> " + tasks[nrWeek + 1] + " </b></li>\n      <li>Camille your task of this week is: <b> " + tasks[nrWeek + 2] + " </b></li>\n      <li>Andrej your task of this week is: <b> " + tasks[nrWeek + 3] + " </b></li>\n      <li>Miguel your task of this week is: <b> " + tasks[nrWeek + 4] + " </b></li>\n    </ul>");
 });
 // start the Express server
 app.listen(PORT, function () {
